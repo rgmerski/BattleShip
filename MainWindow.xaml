@@ -1,0 +1,404 @@
+﻿<Window x:Class="BattleShip.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BattleShip"
+        mc:Ignorable="d"
+        Title="BattleShip" Height="800" Width="1600">
+    <Grid>
+        <Grid x:Name="P1G_Shots" HorizontalAlignment="Left" Height="330" Margin="60,60,0,0" VerticalAlignment="Top" Width="330" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                A
+            </TextBlock>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                B
+            </TextBlock>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                C
+            </TextBlock>
+            <TextBlock Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                D
+            </TextBlock>
+            <TextBlock Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                E
+            </TextBlock>
+            <TextBlock Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                F
+            </TextBlock>
+            <TextBlock Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                G
+            </TextBlock>
+            <TextBlock Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                H
+            </TextBlock>
+            <TextBlock Grid.Column="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                I
+            </TextBlock>
+            <TextBlock Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                J
+            </TextBlock>
+
+
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                1
+            </TextBlock>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                2
+            </TextBlock>
+            <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                3
+            </TextBlock>
+            <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                4
+            </TextBlock>
+            <TextBlock Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                5
+            </TextBlock>
+            <TextBlock Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                6
+            </TextBlock>
+            <TextBlock Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                7
+            </TextBlock>
+            <TextBlock Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                8
+            </TextBlock>
+            <TextBlock Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                9
+            </TextBlock>
+            <TextBlock Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                10
+            </TextBlock>
+
+
+        </Grid>
+
+
+        <Grid x:Name="P1G_Ships" HorizontalAlignment="Left" Height="330" Margin="400,400,0,0" VerticalAlignment="Top" Width="330" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                A
+            </TextBlock>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                B
+            </TextBlock>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                C
+            </TextBlock>
+            <TextBlock Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                D
+            </TextBlock>
+            <TextBlock Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                E
+            </TextBlock>
+            <TextBlock Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                F
+            </TextBlock>
+            <TextBlock Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                G
+            </TextBlock>
+            <TextBlock Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                H
+            </TextBlock>
+            <TextBlock Grid.Column="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                I
+            </TextBlock>
+            <TextBlock Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                J
+            </TextBlock>
+
+
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                1
+            </TextBlock>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                2
+            </TextBlock>
+            <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                3
+            </TextBlock>
+            <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                4
+            </TextBlock>
+            <TextBlock Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                5
+            </TextBlock>
+            <TextBlock Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                6
+            </TextBlock>
+            <TextBlock Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                7
+            </TextBlock>
+            <TextBlock Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                8
+            </TextBlock>
+            <TextBlock Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                9
+            </TextBlock>
+            <TextBlock Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                10
+            </TextBlock>
+
+        </Grid>
+
+        <Line
+        X1="800" Y1="0"
+        X2="800" Y2="800"
+        Stroke="Black"
+        StrokeThickness="1" />
+
+        <Grid x:Name="P2G_Shots" HorizontalAlignment="Left" Height="330" Margin="860,60,0,0" VerticalAlignment="Top" Width="330" ShowGridLines="True" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                A
+            </TextBlock>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                B
+            </TextBlock>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                C
+            </TextBlock>
+            <TextBlock Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                D
+            </TextBlock>
+            <TextBlock Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                E
+            </TextBlock>
+            <TextBlock Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                F
+            </TextBlock>
+            <TextBlock Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                G
+            </TextBlock>
+            <TextBlock Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                H
+            </TextBlock>
+            <TextBlock Grid.Column="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                I
+            </TextBlock>
+            <TextBlock Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                J
+            </TextBlock>
+
+
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                1
+            </TextBlock>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                2
+            </TextBlock>
+            <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                3
+            </TextBlock>
+            <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                4
+            </TextBlock>
+            <TextBlock Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                5
+            </TextBlock>
+            <TextBlock Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                6
+            </TextBlock>
+            <TextBlock Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                7
+            </TextBlock>
+            <TextBlock Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                8
+            </TextBlock>
+            <TextBlock Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                9
+            </TextBlock>
+            <TextBlock Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                10
+            </TextBlock>
+
+        </Grid>
+
+
+        <Grid x:Name="P2G_Ships" HorizontalAlignment="Left" Height="330" Margin="1200,400,0,0" VerticalAlignment="Top" Width="330" ShowGridLines="True" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                A
+            </TextBlock>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                B
+            </TextBlock>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                C
+            </TextBlock>
+            <TextBlock Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                D
+            </TextBlock>
+            <TextBlock Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                E
+            </TextBlock>
+            <TextBlock Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                F
+            </TextBlock>
+            <TextBlock Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                G
+            </TextBlock>
+            <TextBlock Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                H
+            </TextBlock>
+            <TextBlock Grid.Column="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                I
+            </TextBlock>
+            <TextBlock Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                J
+            </TextBlock>
+
+
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                1
+            </TextBlock>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                2
+            </TextBlock>
+            <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                3
+            </TextBlock>
+            <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                4
+            </TextBlock>
+            <TextBlock Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                5
+            </TextBlock>
+            <TextBlock Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                6
+            </TextBlock>
+            <TextBlock Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                7
+            </TextBlock>
+            <TextBlock Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                8
+            </TextBlock>
+            <TextBlock Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                9
+            </TextBlock>
+            <TextBlock Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                10
+            </TextBlock>
+
+        </Grid>
+        
+        
+        <TextBox HorizontalAlignment="Left" Margin="160,19,0,0" Text="Player 1" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="480" IsReadOnly="True" HorizontalContentAlignment="Center" />
+        <TextBox HorizontalAlignment="Left" Margin="960,19,0,0" Text="Player 2" FontSize="20"  TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="480" IsReadOnly="True" HorizontalContentAlignment="Center" />
+        <TextBox HorizontalAlignment="Left" Margin="60,392,0,0" Text="Shots" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" HorizontalContentAlignment="Center" BorderThickness="0"/>
+        <TextBox HorizontalAlignment="Left" Margin="400,730,0,0" Text="Ships" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" HorizontalContentAlignment="Center" BorderThickness="0"/>
+        <TextBox HorizontalAlignment="Left" Margin="860,392,0,0" Text="Shots" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" HorizontalContentAlignment="Center" BorderThickness="0"/>
+        <TextBox HorizontalAlignment="Left" Margin="1200,730,0,0" Text="Ships" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" HorizontalContentAlignment="Center" BorderThickness="0"/>
+
+
+    </Grid>
+</Window>
