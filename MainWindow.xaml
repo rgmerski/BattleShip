@@ -400,8 +400,8 @@
         <TextBox HorizontalAlignment="Left" Margin="1200,730,0,0" Text="Ships" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" HorizontalContentAlignment="Center" BorderThickness="0"/>
         <Button x:Name="RND_P1" Content="Randomize ships" HorizontalAlignment="Left" Margin="60,499,0,0" VerticalAlignment="Top" Click="RND_P1_Click"/>
         <Button x:Name="RND_P2" Content="Randomize ships" HorizontalAlignment="Left" Margin="860,499,0,0" VerticalAlignment="Top" Click="RND_P2_Click"/>
-        <Button x:Name="P1_Shot" Content="Random shot" HorizontalAlignment="Left" Margin="440,124,0,0" VerticalAlignment="Top" Width="125" Click="P1_Shot_Click"/>
-        <Button x:Name="P2_Shot" Content="Random shot" HorizontalAlignment="Left" Margin="1240,124,0,0" VerticalAlignment="Top" Width="125" Click="P2_Shot_Click"/>
+        <Button x:Name="P1_Shot" Content="Random shot" HorizontalAlignment="Left" Margin="440,124,0,0" VerticalAlignment="Top" Width="125" Click="P1_Shot_Click" IsEnabled="False"/>
+        <Button x:Name="P2_Shot" Content="Random shot" HorizontalAlignment="Left" Margin="1240,124,0,0" VerticalAlignment="Top" Width="125" Click="P2_Shot_Click" IsEnabled="False"/>
 
 
     </Grid>
