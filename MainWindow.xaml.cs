@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace BattleShip
 {
@@ -21,11 +22,21 @@ namespace BattleShip
         bool p1_ready;
         bool p2_ready;
 
+        int win;
+
+
         public MainWindow()
         {
             InitializeComponent();
             p1_ready = false;
             p2_ready = false;
+
+            win = 0;
+            // Let's play fair: both players have same ammount of same lenght ships
+            foreach (var ship in p1.Ships)
+            {
+                win += ship.Length;
+            }
         }
 
         private void RND_P1_Click(object sender, RoutedEventArgs e)
@@ -51,13 +62,48 @@ namespace BattleShip
         }
 
 
+        private void Reset(Grid[] grids)
+        {
+            // Clear each grid from table
+            foreach (var grid in grids)
+            {
+
+                grid.Children.Clear();
+
+                for (int i = 0; i < 10; i++)
+                {
+                    TextBlock temp = new TextBlock();
+                    temp.Text = cols[i];
+                    Grid.SetColumn(temp, i + 1);
+                    Grid.SetRow(temp, 0);
+                    temp.HorizontalAlignment = HorizontalAlignment.Center;
+                    temp.VerticalAlignment = VerticalAlignment.Center;
+                    grid.Children.Add(temp);
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    TextBlock temp = new TextBlock();
+                    temp.Text = rows[i];
+                    Grid.SetColumn(temp, 0);
+                    Grid.SetRow(temp, i + 1);
+                    temp.HorizontalAlignment = HorizontalAlignment.Center;
+                    temp.VerticalAlignment = VerticalAlignment.Center;
+                    grid.Children.Add(temp);
+                }
+
+            }
+        }
+
+
+
         // Reset grids
         private void Reset(Player player, Grid[] grids)
         {
             
             if (player.Name == "p1")
             {
-                P1G_Ships.Children.Clear();
+                grids[0].Children.Clear();
                 for (int i = 0; i < 10; i++)
                 {
                     TextBlock temp = new TextBlock();
@@ -81,7 +127,7 @@ namespace BattleShip
             }
             else
             {
-                P2G_Ships.Children.Clear();
+                grids[1].Children.Clear();
                 for (int i = 0; i < 10; i++)
                 {
                     TextBlock temp = new TextBlock();
@@ -137,11 +183,11 @@ namespace BattleShip
 
                     if (orientation == 0)
                     {
-                        endrow += ship.Length;
+                        endrow += ship.Length-1;
                     }
                     else
                     {
-                        endcolumn += ship.Length;
+                        endcolumn += ship.Length-1;
                     }
                     // EMPTY | A | B | C | D | E | F | G | H | I | J
                     /*  1
@@ -174,6 +220,7 @@ namespace BattleShip
                         continue;
                         // try next placement
                     }
+                    int pom = 0;
                     foreach (var area in usedAreas)
                     {
                         int row = area.Row;
@@ -188,6 +235,7 @@ namespace BattleShip
                             Grid.SetRow(txt, row);
                             txt.HorizontalAlignment = HorizontalAlignment.Center;
                             txt.VerticalAlignment = VerticalAlignment.Center;
+                            pom++;
                             P1G_Ships.Children.Add(txt);
                         }
                         else
@@ -219,18 +267,26 @@ namespace BattleShip
             }
         }
 
+        int p1_hits = 0, p2_hits = 0;
+
         private void Rand_shoot(Player player)
         {
             Random rand = new Random();
             Board enemy_board;
             Grid grid;
+
+            RND_P1.IsEnabled = false;
+            RND_P2.IsEnabled = false;
+
             if (player.Name == "p1")
             {
+                P2_Shot.IsEnabled = false;
                 grid = P1G_Shots;
                 enemy_board = p2.Board;
             }
-            else 
+            else
             {
+                P1_Shot.IsEnabled = false;
                 grid = P2G_Shots;
                 enemy_board = p1.Board;
             }
@@ -238,6 +294,7 @@ namespace BattleShip
 
             // Game board that contains shots
             Board shoots = new();
+
 
             bool hit = true;
             // Random shoot
@@ -263,17 +320,17 @@ namespace BattleShip
                 }
 
                 // check, if area is occupied by any ship
-                // iteration in list (Board class) goes like this -> row 1 col 1 2 3 4 .... , row 2 , col 1 2 3 4 5 etc
-                // row 1 col 1 -> Area(1,1); row 1 col 2 -> Area(1,2) 
                 foreach (var item in current)
                 {
                     var clone_hit = new Area(shot_row, shot_col);
                     clone_hit.IsUsed = true;
                     var board = enemy_board.Areas;
+                    // hit
                     if (board.Contains(clone_hit))
                     {
-                        TextBlock txt = new TextBlock();
+                        TextBlock txt = new TextBlock();                        
                         txt.Text = ("+");
+                        txt.Foreground = Brushes.Green;
                         Grid.SetColumn(txt, shot_col);
                         Grid.SetRow(txt, shot_row);
                         txt.HorizontalAlignment = HorizontalAlignment.Center;
@@ -281,10 +338,40 @@ namespace BattleShip
                         grid.Children.Add(txt);
                         MessageBox.Show($"Hit! {shot_row} row and {shot_col} column");
                         hit = true;
+
+                        // check win condition
+                        if (player.Name == "p1")
+                        {
+                            p1_hits++;
+                            P1_Score.Content = $"{p1_hits}/{win}";
+                            if(p1_hits>=win)
+                            {
+                                MessageBox.Show("Player 1 won!");
+                                Grid[] toReset = { P1G_Ships, P2G_Ships, P1G_Shots, P2G_Shots };
+                                Reset(toReset);
+                                break;
+                            }
+                        }
+
+                        else
+                        {
+                            p2_hits++;
+                            P2_Score.Content = $"{p2_hits}/{win}";
+                            if (p2_hits >= win)
+                            {
+                                MessageBox.Show("Player 2 won!");
+                                Grid[] toReset = { P1G_Ships, P2G_Ships, P1G_Shots, P2G_Shots };
+                                Reset(toReset);
+                                break;
+                            }
+                        }
+                        
                     }
+                    // miss
                     else
                     {
                         TextBlock txt = new TextBlock();
+                        txt.Foreground = Brushes.Red;
                         txt.Text = ("-");
                         Grid.SetColumn(txt, shot_col);
                         Grid.SetRow(txt, shot_row);
@@ -293,8 +380,21 @@ namespace BattleShip
                         grid.Children.Add(txt);
                         MessageBox.Show($"Miss. {shot_row} row and {shot_col} column");
                         hit = false;
+
+                        if (player.Name == "p1")
+                        {
+                            P1_Shot.IsEnabled = false;
+                            P2_Shot.IsEnabled = true;
+                        }
+                        else
+                        {
+                            P1_Shot.IsEnabled = true;
+                            P2_Shot.IsEnabled = false;
+                        }
                     }
                 }
+
+
 
             }
 
@@ -336,13 +436,6 @@ namespace BattleShip
         public string Name { get; set; }
         public List<Ship> Ships { get; set; }
 
-        public bool Lost
-        {
-            get
-            {
-                return Ships.All(x => x.Sunk);
-            }
-        }
 
         public Board Board { get; set; }
 

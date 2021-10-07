@@ -402,6 +402,8 @@
         <Button x:Name="RND_P2" Content="Randomize ships" HorizontalAlignment="Left" Margin="860,499,0,0" VerticalAlignment="Top" Click="RND_P2_Click"/>
         <Button x:Name="P1_Shot" Content="Random shot" HorizontalAlignment="Left" Margin="440,124,0,0" VerticalAlignment="Top" Width="125" Click="P1_Shot_Click" IsEnabled="False"/>
         <Button x:Name="P2_Shot" Content="Random shot" HorizontalAlignment="Left" Margin="1240,124,0,0" VerticalAlignment="Top" Width="125" Click="P2_Shot_Click" IsEnabled="False"/>
+        <Label Content="0/17" HorizontalAlignment="Left" Margin="440,173,0,0" VerticalAlignment="Top" Width="125" x:Name="P1_Score" />
+        <Label Content="0/17" HorizontalAlignment="Left" Margin="1240,173,0,0" VerticalAlignment="Top" Width="125" x:Name="P2_Score" />
 
 
     </Grid>
