@@ -349,6 +349,10 @@ namespace BattleShip
                                 MessageBox.Show("Player 1 won!");
                                 Grid[] toReset = { P1G_Ships, P2G_Ships, P1G_Shots, P2G_Shots };
                                 Reset(toReset);
+                                P1_Shot.IsEnabled = false;
+                                P2_Shot.IsEnabled = false;
+                                RND_P1.IsEnabled = true;
+                                RND_P2.IsEnabled = true;
                                 break;
                             }
                         }
@@ -362,6 +366,10 @@ namespace BattleShip
                                 MessageBox.Show("Player 2 won!");
                                 Grid[] toReset = { P1G_Ships, P2G_Ships, P1G_Shots, P2G_Shots };
                                 Reset(toReset);
+                                P1_Shot.IsEnabled = false;
+                                P2_Shot.IsEnabled = false;
+                                RND_P1.IsEnabled = true;
+                                RND_P2.IsEnabled = true;
                                 break;
                             }
                         }
