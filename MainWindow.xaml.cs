@@ -353,6 +353,8 @@ namespace BattleShip
                                 P2_Shot.IsEnabled = false;
                                 RND_P1.IsEnabled = true;
                                 RND_P2.IsEnabled = true;
+                                p1_hits = 0;
+                                p2_hits = 0;
                                 break;
                             }
                         }
@@ -370,6 +372,8 @@ namespace BattleShip
                                 P2_Shot.IsEnabled = false;
                                 RND_P1.IsEnabled = true;
                                 RND_P2.IsEnabled = true;
+                                p1_hits = 0;
+                                p2_hits = 0;
                                 break;
                             }
                         }
