@@ -10,14 +10,6 @@ namespace BattleShip.Models
     {
         public string Name { get; set; }
         public int Length { get; set; }
-        public int Hits { get; set; }
-        public bool Sunk
-        {
-            get
-            {
-                return Hits >= Length;
-            }
-        }
     }
 
     public class Carrier : Ship

@@ -16,14 +16,13 @@ namespace BattleShip
         private Player p1 = new Player("p1");
         private Player p2 = new Player("p2");
 
-        string[] cols = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
-        string[] rows = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+        private string[] cols = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
+        private string[] rows = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
-        bool p1_ready;
-        bool p2_ready;
+        private bool p1_ready;
+        private bool p2_ready;
 
-        int win;
-
+        private int win;
 
         public MainWindow()
         {
@@ -61,13 +60,11 @@ namespace BattleShip
             Rand_shoot(p2);
         }
 
-
         private void Reset(Grid[] grids)
         {
             // Clear each grid from table
             foreach (var grid in grids)
             {
-
                 grid.Children.Clear();
 
                 for (int i = 0; i < 10; i++)
@@ -91,16 +88,12 @@ namespace BattleShip
                     temp.VerticalAlignment = VerticalAlignment.Center;
                     grid.Children.Add(temp);
                 }
-
             }
         }
-
-
 
         // Reset grids
         private void Reset(Player player, Grid[] grids)
         {
-            
             if (player.Name == "p1")
             {
                 grids[0].Children.Clear();
@@ -151,7 +144,6 @@ namespace BattleShip
             }
         }
 
-        
         private void Rand_ship(Player player)
         {
             Random rand = new Random();
@@ -183,11 +175,11 @@ namespace BattleShip
 
                     if (orientation == 0)
                     {
-                        endrow += ship.Length-1;
+                        endrow += ship.Length - 1;
                     }
                     else
                     {
-                        endcolumn += ship.Length-1;
+                        endcolumn += ship.Length - 1;
                     }
                     // EMPTY | A | B | C | D | E | F | G | H | I | J
                     /*  1
@@ -267,7 +259,7 @@ namespace BattleShip
             }
         }
 
-        int p1_hits = 0, p2_hits = 0;
+        private int p1_hits = 0, p2_hits = 0;
 
         private void Rand_shoot(Player player)
         {
@@ -291,20 +283,17 @@ namespace BattleShip
                 enemy_board = p1.Board;
             }
 
-
             // Game board that contains shots
             Board shoots = new();
 
-
             bool hit = true;
             // Random shoot
-            while(hit)
+            while (hit)
             {
                 var shot_col = rand.Next(1, 11);
                 var shot_row = rand.Next(1, 11);
                 // Get current area
                 var current = shoots.Areas.Check(shot_row, shot_col, shot_row, shot_col);
-
 
                 // if area was already chosen - try next area
                 if (current.Any(x => x.IsUsed))
@@ -328,7 +317,7 @@ namespace BattleShip
                     // hit
                     if (board.Contains(clone_hit))
                     {
-                        TextBlock txt = new TextBlock();                        
+                        TextBlock txt = new TextBlock();
                         txt.Text = ("+");
                         txt.Foreground = Brushes.Green;
                         Grid.SetColumn(txt, shot_col);
@@ -344,7 +333,7 @@ namespace BattleShip
                         {
                             p1_hits++;
                             P1_Score.Content = $"{p1_hits}/{win}";
-                            if(p1_hits>=win)
+                            if (p1_hits >= win)
                             {
                                 MessageBox.Show("Player 1 won!");
                                 Grid[] toReset = { P1G_Ships, P2G_Ships, P1G_Shots, P2G_Shots };
@@ -358,7 +347,6 @@ namespace BattleShip
                                 break;
                             }
                         }
-
                         else
                         {
                             p2_hits++;
@@ -377,7 +365,6 @@ namespace BattleShip
                                 break;
                             }
                         }
-                        
                     }
                     // miss
                     else
@@ -405,11 +392,7 @@ namespace BattleShip
                         }
                     }
                 }
-
-
-
             }
-
         }
     }
 
@@ -437,7 +420,7 @@ namespace BattleShip
         public bool Equals(Area other)
         {
             if (other == null) return false;
-            return (this.Row.Equals(other.Row) && 
+            return (this.Row.Equals(other.Row) &&
                 this.Column.Equals(other.Column) &&
                 this.IsUsed.Equals(other.IsUsed));
         }
@@ -447,7 +430,6 @@ namespace BattleShip
     {
         public string Name { get; set; }
         public List<Ship> Ships { get; set; }
-
 
         public Board Board { get; set; }
 
